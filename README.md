@@ -56,16 +56,6 @@
 ## Overview
 DashFlow is a production-grade task management application that provides secure authentication and full task lifecycle management with a modern, responsive interface.
 
-## Dark and Light Mode
-DashFlow uses a clean light palette by default and includes theme-aware documentation visuals below.
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=0:0f172a,100:1e293b&height=80&section=header&text=Dark+Mode&fontColor=ffffff&fontSize=24&animation=fadeIn" />
-    <img src="https://capsule-render.vercel.app/api?type=rounded&color=0:3B82F6,100:8B5CF6&height=80&section=header&text=Light+Mode&fontColor=ffffff&fontSize=24&animation=fadeIn" alt="Theme modes" />
-  </picture>
-</div>
-
 ## Features
 - User authentication (signup/login)
 - JWT-based authorization
