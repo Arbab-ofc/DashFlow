@@ -56,6 +56,7 @@ const Dashboard = () => {
     if (!pendingDelete) return;
     await deleteTaskItem(pendingDelete.id);
     setConfirmOpen(false);
+    setPendingDelete(null);
   };
 
   const handleSave = async (data: { title: string; description?: string; status: TaskStatus }) => {
