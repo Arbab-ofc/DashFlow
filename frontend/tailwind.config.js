@@ -17,7 +17,8 @@ module.exports = {
       },
       fontFamily: {
         display: ["\"Space Grotesk\"", "sans-serif"],
-        body: ["\"Plus Jakarta Sans\"", "sans-serif"]
+        body: ["\"Plus Jakarta Sans\"", "sans-serif"],
+        monoDisplay: ["\"JetBrains Mono\"", "monospace"]
       },
       boxShadow: {
         soft: "0 10px 30px rgba(15, 23, 42, 0.08)",
