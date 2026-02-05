@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Layout from "../components/layout/Layout";
@@ -148,13 +149,15 @@ const Profile = () => {
                   className: "!text-white",
                   style: { backgroundColor: "rgba(255,255,255,0.05)" },
                   endAdornment: (
-                    <IconButton
-                      onClick={() => setShowCurrentPassword((prev) => !prev)}
-                      edge="end"
-                      aria-label={showCurrentPassword ? "Hide password" : "Show password"}
-                    >
-                      {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowCurrentPassword((prev) => !prev)}
+                        edge="end"
+                        aria-label={showCurrentPassword ? "Hide password" : "Show password"}
+                      >
+                        {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
                   )
                 }}
                 InputLabelProps={{ className: "!text-white/70" }}
@@ -170,13 +173,15 @@ const Profile = () => {
                   className: "!text-white",
                   style: { backgroundColor: "rgba(255,255,255,0.05)" },
                   endAdornment: (
-                    <IconButton
-                      onClick={() => setShowNewPassword((prev) => !prev)}
-                      edge="end"
-                      aria-label={showNewPassword ? "Hide password" : "Show password"}
-                    >
-                      {showNewPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowNewPassword((prev) => !prev)}
+                        edge="end"
+                        aria-label={showNewPassword ? "Hide password" : "Show password"}
+                      >
+                        {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
                   )
                 }}
                 InputLabelProps={{ className: "!text-white/70" }}
@@ -192,13 +197,15 @@ const Profile = () => {
                   className: "!text-white",
                   style: { backgroundColor: "rgba(255,255,255,0.05)" },
                   endAdornment: (
-                    <IconButton
-                      onClick={() => setShowConfirmPassword((prev) => !prev)}
-                      edge="end"
-                      aria-label={showConfirmPassword ? "Hide password" : "Show password"}
-                    >
-                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowConfirmPassword((prev) => !prev)}
+                        edge="end"
+                        aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                      >
+                        {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
                   )
                 }}
                 InputLabelProps={{ className: "!text-white/70" }}
