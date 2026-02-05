@@ -10,7 +10,7 @@ interface TaskListProps {
 const TaskList = ({ tasks, onEdit, onDelete }: TaskListProps) => {
   if (!tasks.length) {
     return (
-      <div className="rounded-xl border border-dashed border-border bg-white px-6 py-10 text-center text-sm text-textSecondary">
+      <div className="rounded-xl border border-dashed border-white/20 bg-white/5 px-6 py-10 text-center text-sm text-white/60">
         No tasks yet. Add your first task to get started.
       </div>
     );
