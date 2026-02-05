@@ -58,8 +58,8 @@ export const updatePasswordHandler = async (
       throw error;
     }
 
-    const { currentPassword, newPassword } = req.body;
-    await updatePassword(userId, currentPassword, newPassword);
+    const { newPassword } = req.body;
+    await updatePassword(userId, newPassword);
     successResponse(res, { updated: true }, "Password updated");
   } catch (error) {
     next(error);
