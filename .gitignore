@@ -7,3 +7,4 @@ npm-debug.log*
 *.log
 backend/dist/
 frontend/build/
+frontend/public/original-29e3a3c53af2edd1382abecbd99b0a33.webp
