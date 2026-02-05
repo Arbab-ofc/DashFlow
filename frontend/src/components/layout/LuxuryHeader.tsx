@@ -18,7 +18,7 @@ const LuxuryHeader = () => {
         </span>
         DashFlow
       </Link>
-      <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/70 md:flex font-monoDisplay">
+      <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/70 lg:flex font-monoDisplay">
         <Link to="/" className="transition-all hover:text-white">
           Home
         </Link>
@@ -45,7 +45,7 @@ const LuxuryHeader = () => {
       <button
         type="button"
         onClick={() => setMenuOpen((prev) => !prev)}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all md:hidden"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all lg:hidden"
         aria-label="Toggle navigation"
       >
         {menuOpen ? <X size={16} /> : <Menu size={16} />}
@@ -54,7 +54,7 @@ const LuxuryHeader = () => {
         <button
           type="button"
           onClick={logoutUser}
-          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white md:flex"
+          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white lg:flex"
         >
           Logout
           <MoveUpRight size={14} />
@@ -62,20 +62,20 @@ const LuxuryHeader = () => {
       ) : (
         <Link
           to="/signup"
-          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white md:flex"
+          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white lg:flex"
         >
           Signup
           <MoveUpRight size={14} />
         </Link>
       )}
       <div
-        className={`fixed inset-0 z-30 bg-black/40 transition-opacity md:hidden ${
+        className={`fixed inset-0 z-30 bg-black/40 transition-opacity lg:hidden ${
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setMenuOpen(false)}
       />
       <aside
-        className={`fixed right-0 top-0 z-40 h-full w-72 bg-[#141218] p-6 text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)] transition-transform duration-200 md:hidden ${
+        className={`fixed right-0 top-0 z-40 h-full w-72 bg-[#141218] p-6 text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)] transition-transform duration-200 lg:hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
