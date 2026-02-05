@@ -71,44 +71,46 @@ const Home = () => {
               </div>
             </div>
           </section>
-        </div>
 
-        <section className="mt-20 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-[32px] bg-[#141218] p-8 text-white shadow-[0_40px_100px_rgba(24,16,42,0.35)]">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/60">FAQs</p>
-            <h2 className="mt-4 text-3xl font-semibold font-monoDisplay">Answers with executive clarity.</h2>
-            <p className="mt-3 text-sm text-white/60">
-              Everything you need to understand DashFlow's workflow, security, and delivery model.
-            </p>
-          </div>
-          <div className="space-y-4">
-            {[
-              {
-                question: "How is DashFlow different from standard task apps?",
-                answer:
-                  "DashFlow is built for leadership-grade execution with refined filtering, focused visuals, and real-time accountability."
-              },
-              {
-                question: "Is my data secure?",
-                answer:
-                  "Yes. We use Argon2 hashing, JWT authentication, and Prisma validation to safeguard every request."
-              },
-              {
-                question: "Can I filter tasks by status and search quickly?",
-                answer:
-                  "DashFlow supports instant search and status filters so teams can isolate priority tasks in seconds."
-              }
-            ].map((item) => (
-              <div
-                key={item.question}
-                className="rounded-[24px] border border-white/10 bg-white/5 px-6 py-5 text-white shadow-[0_20px_60px_rgba(24,16,42,0.2)]"
-              >
-                <p className="text-sm font-semibold">{item.question}</p>
-                <p className="mt-2 text-sm text-white/60">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+          <section className="mt-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-[32px] border border-white/10 bg-[#0f0f13]/90 p-8 text-white shadow-[0_40px_100px_rgba(24,16,42,0.45)]">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70">FAQs</p>
+              <h2 className="mt-4 text-3xl font-semibold font-monoDisplay">
+                Answers with executive clarity.
+              </h2>
+              <p className="mt-3 text-sm text-white/70">
+                Everything you need to understand DashFlow's workflow, security, and delivery model.
+              </p>
+            </div>
+            <div className="space-y-4">
+              {[
+                {
+                  question: "How is DashFlow different from standard task apps?",
+                  answer:
+                    "DashFlow is built for leadership-grade execution with refined filtering, focused visuals, and real-time accountability."
+                },
+                {
+                  question: "Is my data secure?",
+                  answer:
+                    "Yes. We use Argon2 hashing, JWT authentication, and Prisma validation to safeguard every request."
+                },
+                {
+                  question: "Can I filter tasks by status and search quickly?",
+                  answer:
+                    "DashFlow supports instant search and status filters so teams can isolate priority tasks in seconds."
+                }
+              ].map((item) => (
+                <div
+                  key={item.question}
+                  className="rounded-[24px] border border-white/15 bg-[#0f0f13]/80 px-6 py-5 text-white shadow-[0_20px_60px_rgba(24,16,42,0.35)]"
+                >
+                  <p className="text-sm font-semibold">{item.question}</p>
+                  <p className="mt-2 text-sm text-white/70">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
       <footer className="border-t border-white/30 bg-[#c6b8f0]">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-8 text-sm text-[#221b3b] md:flex-row md:items-center">
