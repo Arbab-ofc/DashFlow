@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,6 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       />
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className="px-4 pb-16 pt-6 lg:ml-64 lg:px-10">{children}</main>
+      <Footer />
     </div>
   );
 };
