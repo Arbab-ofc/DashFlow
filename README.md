@@ -426,3 +426,4 @@ Password: Demo123456
 ## Contact
 [![GitHub](https://img.shields.io/badge/GitHub-Arbab--ofc-0f172a?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Arbab-ofc)
 [![Website](https://img.shields.io/badge/Website-arbabofc.me-3B82F6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.arbabofc.me)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-arbab--ofc-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arbab-ofc)
