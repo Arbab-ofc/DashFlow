@@ -139,6 +139,8 @@ sequenceDiagram
 - Task search and filtering
 - Responsive design
 - Modern UI with icons only (no emojis)
+- Luxury public landing page
+- Profile management with password update
 
 ## Tech Stack
 
@@ -227,6 +229,11 @@ npx prisma generate
 2. Start the frontend: `npm start` in `frontend/`.
 3. Open `http://localhost:3000`.
 
+## UI Notes
+- Public landing page uses the luxury hero layout.
+- Auth pages and dashboard use the hero header styling.
+- Profile page includes password update with show/hide toggles.
+
 ## API Documentation
 
 ### Auth Endpoints
@@ -276,6 +283,25 @@ Get current user profile (requires authentication)
 
 #### PUT /api/v1/me
 Update current user profile
+
+Request Body:
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+
+#### PUT /api/v1/me/password
+Update account password
+
+Request Body:
+```json
+{
+  "newPassword": "NewSecurePass123",
+  "confirmPassword": "NewSecurePass123"
+}
+```
 
 ### Task Endpoints
 
