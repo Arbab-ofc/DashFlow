@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Layout from "../components/layout/Layout";
 import LuxuryHeader from "../components/layout/LuxuryHeader";
 import { useAuth } from "../hooks/useAuth";
-import { updateProfile } from "../services/userService";
+import { updatePassword, updateProfile } from "../services/userService";
 import { toast } from "react-toastify";
 
 const Profile = () => {
@@ -12,6 +15,13 @@ const Profile = () => {
   const [name, setName] = useState(user?.name ?? "");
   const [email, setEmail] = useState(user?.email ?? "");
   const [saving, setSaving] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [passwordSaving, setPasswordSaving] = useState(false);
 
   useEffect(() => {
     setName(user?.name ?? "");
@@ -28,6 +38,36 @@ const Profile = () => {
       toast.error("Unable to update profile");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handlePasswordUpdate = async () => {
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      toast.error("All password fields are required");
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      toast.error("Password must be at least 8 characters");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    setPasswordSaving(true);
+    try {
+      await updatePassword({ currentPassword, newPassword, confirmPassword });
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+      toast.success("Password updated");
+    } catch (error) {
+      toast.error("Unable to update password");
+    } finally {
+      setPasswordSaving(false);
     }
   };
 
@@ -86,6 +126,91 @@ const Profile = () => {
                   className="!rounded-xl !bg-white !text-[#1b1b1f]"
                 >
                   {saving ? "Saving..." : "Save changes"}
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-[28px] bg-[#141218] p-6 text-white shadow-[0_30px_80px_rgba(10,8,18,0.45)]">
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold">Change password</h2>
+              <p className="text-sm text-white/60">Update your credentials securely.</p>
+            </div>
+            <div className="grid gap-4">
+              <TextField
+                label="Current password"
+                type={showCurrentPassword ? "text" : "password"}
+                value={currentPassword}
+                onChange={(event) => setCurrentPassword(event.target.value)}
+                fullWidth
+                variant="outlined"
+                InputProps={{
+                  className: "!text-white",
+                  style: { backgroundColor: "rgba(255,255,255,0.05)" },
+                  endAdornment: (
+                    <IconButton
+                      onClick={() => setShowCurrentPassword((prev) => !prev)}
+                      edge="end"
+                      aria-label={showCurrentPassword ? "Hide password" : "Show password"}
+                    >
+                      {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  )
+                }}
+                InputLabelProps={{ className: "!text-white/70" }}
+              />
+              <TextField
+                label="New password"
+                type={showNewPassword ? "text" : "password"}
+                value={newPassword}
+                onChange={(event) => setNewPassword(event.target.value)}
+                fullWidth
+                variant="outlined"
+                InputProps={{
+                  className: "!text-white",
+                  style: { backgroundColor: "rgba(255,255,255,0.05)" },
+                  endAdornment: (
+                    <IconButton
+                      onClick={() => setShowNewPassword((prev) => !prev)}
+                      edge="end"
+                      aria-label={showNewPassword ? "Hide password" : "Show password"}
+                    >
+                      {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  )
+                }}
+                InputLabelProps={{ className: "!text-white/70" }}
+              />
+              <TextField
+                label="Confirm new password"
+                type={showConfirmPassword ? "text" : "password"}
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
+                fullWidth
+                variant="outlined"
+                InputProps={{
+                  className: "!text-white",
+                  style: { backgroundColor: "rgba(255,255,255,0.05)" },
+                  endAdornment: (
+                    <IconButton
+                      onClick={() => setShowConfirmPassword((prev) => !prev)}
+                      edge="end"
+                      aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  )
+                }}
+                InputLabelProps={{ className: "!text-white/70" }}
+              />
+              <div className="flex justify-end">
+                <Button
+                  variant="contained"
+                  onClick={handlePasswordUpdate}
+                  disabled={passwordSaving}
+                  className="!rounded-xl !bg-white !text-[#1b1b1f]"
+                >
+                  {passwordSaving ? "Updating..." : "Update password"}
                 </Button>
               </div>
             </div>
