@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SignupForm from "../components/auth/SignupForm";
+import PublicHeader from "../components/layout/PublicHeader";
 import { useAuth } from "../hooks/useAuth";
 import { toast } from "react-toastify";
 
@@ -23,7 +24,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-violet-50">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-violet-50">
+      <PublicHeader />
       <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-16">
         <div className="grid w-full gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-2xl border border-border bg-white/90 p-8 shadow-soft">
