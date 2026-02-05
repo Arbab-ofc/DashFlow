@@ -1,8 +1,8 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:0f172a,100:1e293b&height=120&section=header&text=DashFlow&fontColor=ffffff&fontSize=48&animation=fadeIn" />
-    <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:8B5CF6&height=120&section=header&text=DashFlow&fontColor=ffffff&fontSize=48&animation=fadeIn" alt="DashFlow" />
-  </picture>
+  <img
+    src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:8B5CF6&height=120&section=header&text=DashFlow&fontColor=ffffff&fontSize=48&animation=fadeIn"
+    alt="DashFlow"
+  />
 </div>
 
 <div align="center">
