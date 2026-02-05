@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import app from "./app";
 import { config } from "./config/env";
+import { seedDatabase } from "./utils/seed";
 
 const prisma = new PrismaClient();
 
@@ -8,6 +9,7 @@ const startServer = async (): Promise<void> => {
   try {
     await prisma.$connect();
     console.log("Database connected");
+    await seedDatabase(prisma);
 
     app.listen(config.PORT, () => {
       console.log(`Server running on port ${config.PORT}`);
