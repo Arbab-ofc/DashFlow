@@ -93,6 +93,60 @@ flowchart TD
   F --> G
 ```
 
+## Data Model (ER Diagram)
+```mermaid
+erDiagram
+  USER {
+    Int id
+    String email
+    String name
+    String password
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  TASK {
+    Int id
+    String title
+    String description
+    TaskStatus status
+    Int userId
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  USER ||--o{ TASK : owns
+```
+
+## Error Handling Flow
+```mermaid
+flowchart TD
+  A[Client request] --> B{Validation}
+  B -->|Invalid| C[400 Validation error]
+  B -->|Valid| D{Auth required?}
+  D -->|No| E[Controller]
+  D -->|Yes| F{JWT valid?}
+  F -->|No| G[401 Unauthorized]
+  F -->|Yes| E[Controller]
+  E --> H{Service/DB}
+  H -->|Success| I[200/201 Response]
+  H -->|Failure| J[Handled error]
+  J --> K[Error middleware]
+  K --> L[Consistent error response]
+```
+
+## Request Lifecycle
+```mermaid
+sequenceDiagram
+  participant UI as Frontend
+  participant API as Express API
+  participant DB as PostgreSQL
+
+  UI->>API: HTTP request + JWT
+  API->>API: Middleware (CORS, auth, validation)
+  API->>DB: Prisma query
+  DB-->>API: Result
+  API-->>UI: JSON response
+```
+
 ## Features
 - User authentication (signup/login)
 - JWT-based authorization
