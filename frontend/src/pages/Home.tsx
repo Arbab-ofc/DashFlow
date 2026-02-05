@@ -63,25 +63,30 @@ const Home = () => {
           </div>
         </div>
 
-        <section className="relative -mt-14 grid gap-4 lg:grid-cols-[1.1fr_0.6fr_0.4fr]">
-          <div className="rounded-[26px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
-            <p className="text-sm font-semibold text-white/60">Assets under management</p>
-            <p className="mt-6 text-5xl font-semibold font-monoDisplay">192k</p>
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-white/50">
-              Tasks curated this quarter
-            </p>
-          </div>
-          <div className="rounded-[26px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
-            <p className="text-sm font-semibold text-white/60">Unique delegators</p>
-            <p className="mt-6 text-5xl font-semibold font-monoDisplay">34</p>
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-white/50">
-              Leadership alignment
-            </p>
-          </div>
-          <div className="rounded-[26px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
-            <p className="text-sm font-semibold text-white/60">Velocity</p>
-            <p className="mt-6 text-4xl font-semibold font-monoDisplay">+18%</p>
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-white/50">MoM gain</p>
+        <section className="relative -mt-14 rounded-[30px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/60">Executive insights</p>
+              <h2 className="text-3xl font-semibold font-monoDisplay">
+                Orchestrate every task with measured momentum.
+              </h2>
+              <p className="text-sm text-white/60">
+                DashFlow keeps leadership aligned with live status pulses and high-level execution markers.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { label: "Portfolio coverage", value: "92%" },
+                { label: "Active task lanes", value: "18" },
+                { label: "Executive approvals", value: "41" },
+                { label: "Velocity score", value: "+18%" }
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/50">{item.label}</p>
+                  <p className="mt-4 text-2xl font-semibold font-monoDisplay">{item.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
