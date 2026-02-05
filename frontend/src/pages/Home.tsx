@@ -42,7 +42,7 @@ const Home = () => {
           </div>
         </div>
 
-        <section className="relative -mt-14 rounded-[30px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
+        <section className="relative mt-16 rounded-[30px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="space-y-3">
               <p className="text-xs uppercase tracking-[0.4em] text-white/60">Executive insights</p>
