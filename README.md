@@ -1,3 +1,38 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rect&color=0:0f172a,100:1e293b&height=120&section=header&text=DashFlow&fontColor=ffffff&fontSize=48&animation=fadeIn" />
+    <img src="https://capsule-render.vercel.app/api?type=rect&color=0:3B82F6,100:8B5CF6&height=120&section=header&text=DashFlow&fontColor=ffffff&fontSize=48&animation=fadeIn" alt="DashFlow" />
+  </picture>
+</div>
+
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=20&duration=2500&pause=800&color=3B82F6&center=true&vCenter=true&width=600&lines=Secure+task+management;Modern+React+and+TypeScript+stack;Prisma+powered+PostgreSQL" alt="DashFlow typing banner" />
+</div>
+
+<div align="center">
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/React-18+-0ea5e9?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-Strict-2563eb?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/TailwindCSS-3-0f766e?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
+  </a>
+  <a href="https://mui.com/">
+    <img src="https://img.shields.io/badge/MUI-5-1e40af?style=for-the-badge&logo=mui&logoColor=white" alt="Material UI" />
+  </a>
+  <a href="https://expressjs.com/">
+    <img src="https://img.shields.io/badge/Express-4-334155?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
+  </a>
+  <a href="https://www.prisma.io/">
+    <img src="https://img.shields.io/badge/Prisma-5-0f172a?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
+  </a>
+  <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/PostgreSQL-14-1f4b99?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  </a>
+</div>
+
 # DashFlow - Task Management Application
 
 ## Table of Contents
@@ -20,6 +55,16 @@
 
 ## Overview
 DashFlow is a production-grade task management application that provides secure authentication and full task lifecycle management with a modern, responsive interface.
+
+## Dark and Light Mode
+DashFlow uses a clean light palette by default and includes theme-aware documentation visuals below.
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=rounded&color=0:0f172a,100:1e293b&height=80&section=header&text=Dark+Mode&fontColor=ffffff&fontSize=24&animation=fadeIn" />
+    <img src="https://capsule-render.vercel.app/api?type=rounded&color=0:3B82F6,100:8B5CF6&height=80&section=header&text=Light+Mode&fontColor=ffffff&fontSize=24&animation=fadeIn" alt="Theme modes" />
+  </picture>
+</div>
 
 ## Features
 - User authentication (signup/login)
