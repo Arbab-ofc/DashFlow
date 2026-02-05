@@ -44,6 +44,7 @@
 - Environment Variables
 - Database Setup
 - Running the Application
+- Seeding
 - API Documentation
 - Frontend Structure
 - Backend Structure
@@ -51,7 +52,7 @@
 - Scaling Considerations
 - Security
 - Contributing
-- License
+- Contact
 
 ## Overview
 DashFlow is a production-grade task management application that provides secure authentication and full task lifecycle management with a modern, responsive interface.
@@ -63,6 +64,7 @@ flowchart LR
   FE -->|Axios + JWT| BE[Express + Prisma API]
   BE --> DB[(PostgreSQL)]
   FE -->|Profile + Password updates| BE
+  BE -->|Seed on first start| DB
 ```
 
 ## Authentication Workflow
@@ -82,6 +84,8 @@ sequenceDiagram
   UI->>API: PUT /api/v1/me or /api/v1/me/password
   API->>DB: Update user record
   API-->>UI: Return updated profile or success
+  API->>DB: Seed demo user/tasks on first start
+  DB-->>API: Seed complete
 ```
 
 ## Task CRUD Workflow
@@ -135,6 +139,7 @@ sequenceDiagram
   API->>DB: Prisma query
   DB-->>API: Result
   API-->>UI: JSON response
+  API->>DB: Seed data if database is empty (first start)
 ```
 
 ## Features
@@ -146,6 +151,7 @@ sequenceDiagram
 - Modern UI with icons only (no emojis)
 - Luxury public landing page
 - Profile management with password update
+- Automatic first-run database seeding (demo user + tasks)
 
 ## Tech Stack
 
@@ -239,6 +245,13 @@ npx prisma generate
 1. Start the backend: `npm run dev` in `backend/`.
 2. Start the frontend: `npm start` in `frontend/`.
 3. Open `http://localhost:3000`.
+
+## Seeding
+On the first backend start, DashFlow seeds a demo user and sample tasks if the database is empty.
+
+Demo credentials:
+- Email: `demo@dashflow.com`
+- Password: `Demo123456`
 
 ## UI Notes
 - Public landing page uses the luxury hero layout.
