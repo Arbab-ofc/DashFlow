@@ -3,7 +3,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 const LoadingSpinner = ({ label = "Loading" }: { label?: string }) => {
   return (
     <div className="flex items-center justify-center py-10">
-      <div className="flex items-center gap-3 text-textSecondary">
+      <div className="flex items-center gap-3 text-white/70">
         <CircularProgress size={22} />
         <span className="text-sm font-medium">{label}</span>
       </div>
