@@ -95,25 +95,10 @@ flowchart TD
 
 ## Data Model (ER Diagram)
 ```mermaid
-erDiagram
-  USER {
-    Int id
-    String email
-    String name
-    String password
-    DateTime createdAt
-    DateTime updatedAt
-  }
-  TASK {
-    Int id
-    String title
-    String description
-    String status
-    Int userId
-    DateTime createdAt
-    DateTime updatedAt
-  }
-  USER ||--o{ TASK : owns
+flowchart LR
+  USER[User\nid: Int\nemail: String\nname: String\npassword: String\ncreatedAt: DateTime\nupdatedAt: DateTime]
+  TASK[Task\nid: Int\ntitle: String\ndescription: String?\nstatus: String\nuserId: Int\ncreatedAt: DateTime\nupdatedAt: DateTime]
+  USER -->|1..many| TASK
 ```
 
 ## Error Handling Flow
