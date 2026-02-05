@@ -18,7 +18,7 @@ const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-lg font-semibold text-textPrimary">{task.title}</h3>
-          <p className="mt-2 text-sm text-textSecondary line-clamp-2">
+          <p className="mt-2 text-sm text-textSecondary">
             {task.description || "No description provided."}
           </p>
         </div>
