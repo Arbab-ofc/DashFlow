@@ -108,7 +108,7 @@ erDiagram
     Int id
     String title
     String description
-    TaskStatus status
+    String status
     Int userId
     DateTime createdAt
     DateTime updatedAt
