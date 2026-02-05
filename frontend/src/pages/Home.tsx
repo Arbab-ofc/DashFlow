@@ -5,7 +5,12 @@ import LuxuryHeader from "../components/layout/LuxuryHeader";
 const Home = () => {
   return (
     <div id="top" className="min-h-screen bg-[#cfc3f4]">
-      <div className="mx-auto max-w-6xl px-6 pb-20 pt-10">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/3 top-24 h-72 w-72 rounded-full bg-white/30 blur-3xl" />
+        <div className="absolute right-10 top-72 h-60 w-60 rounded-full bg-[#9f8cff]/30 blur-3xl" />
+        <div className="absolute bottom-24 left-12 h-72 w-72 rounded-full bg-[#1b1b1f]/10 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-10">
         <div className="relative overflow-hidden rounded-[36px] border border-black/10 bg-gradient-to-br from-[#1b1b1f] via-[#3a2b5f] to-[#d7c8ff] p-6 shadow-[0_40px_120px_rgba(20,12,38,0.35)]">
           <div className="pointer-events-none absolute -left-32 top-12 h-[420px] w-[420px] rounded-full border border-white/20" />
           <div className="pointer-events-none absolute -right-24 bottom-10 h-[360px] w-[360px] rounded-full border border-white/15" />
@@ -67,6 +72,43 @@ const Home = () => {
             </div>
           </section>
         </div>
+
+        <section className="mt-20 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[32px] bg-[#141218] p-8 text-white shadow-[0_40px_100px_rgba(24,16,42,0.35)]">
+            <p className="text-xs uppercase tracking-[0.4em] text-white/60">FAQs</p>
+            <h2 className="mt-4 text-3xl font-semibold font-monoDisplay">Answers with executive clarity.</h2>
+            <p className="mt-3 text-sm text-white/60">
+              Everything you need to understand DashFlow's workflow, security, and delivery model.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {[
+              {
+                question: "How is DashFlow different from standard task apps?",
+                answer:
+                  "DashFlow is built for leadership-grade execution with refined filtering, focused visuals, and real-time accountability."
+              },
+              {
+                question: "Is my data secure?",
+                answer:
+                  "Yes. We use Argon2 hashing, JWT authentication, and Prisma validation to safeguard every request."
+              },
+              {
+                question: "Can I filter tasks by status and search quickly?",
+                answer:
+                  "DashFlow supports instant search and status filters so teams can isolate priority tasks in seconds."
+              }
+            ].map((item) => (
+              <div
+                key={item.question}
+                className="rounded-[24px] border border-white/10 bg-white/5 px-6 py-5 text-white shadow-[0_20px_60px_rgba(24,16,42,0.2)]"
+              >
+                <p className="text-sm font-semibold">{item.question}</p>
+                <p className="mt-2 text-sm text-white/60">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
       <footer className="border-t border-white/30 bg-[#c6b8f0]">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-8 text-sm text-[#221b3b] md:flex-row md:items-center">
