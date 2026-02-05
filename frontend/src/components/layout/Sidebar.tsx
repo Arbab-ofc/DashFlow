@@ -24,11 +24,11 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
         />
       )}
       <aside
-        className={`fixed left-0 top-0 z-30 flex h-full w-64 flex-col border-r border-border bg-white px-4 py-6 transition-transform duration-200 lg:translate-x-0 lg:shadow-none ${
+        className={`fixed left-0 top-0 z-30 flex h-full w-64 flex-col border-r border-white/10 bg-[#141218] px-4 py-6 transition-transform duration-200 lg:translate-x-0 lg:shadow-none ${
           open ? "translate-x-0 shadow-soft" : "-translate-x-full"
         }`}
       >
-        <div className="mb-6 px-2 text-xs font-semibold uppercase tracking-[0.2em] text-textSecondary">
+        <div className="mb-6 px-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
           Workspace
         </div>
         <nav className="flex flex-1 flex-col gap-2">
@@ -41,8 +41,8 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-all ${
                     isActive
-                      ? "bg-gradient-to-r from-primary/10 to-secondary/10 text-primary"
-                      : "text-textSecondary hover:bg-slate-100 hover:text-textPrimary"
+                      ? "bg-white/10 text-white"
+                      : "text-white/60 hover:bg-white/5 hover:text-white"
                   }`
                 }
               >
@@ -52,7 +52,7 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
             );
           })}
         </nav>
-        <div className="rounded-xl bg-slate-50 p-4 text-xs text-textSecondary">
+        <div className="rounded-xl bg-white/5 p-4 text-xs text-white/60">
           Organize your day with focus and flow.
         </div>
       </aside>
