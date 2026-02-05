@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Layers, MoveUpRight } from "lucide-react";
-import { useAuth } from "../hooks/useAuth";
+import { ArrowUpRight } from "lucide-react";
+import LuxuryHeader from "../components/layout/LuxuryHeader";
 
 const Home = () => {
-  const { isAuthenticated, logoutUser } = useAuth();
-
   return (
     <div id="top" className="min-h-screen bg-[#cfc3f4]">
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-10">
@@ -13,63 +11,7 @@ const Home = () => {
           <div className="pointer-events-none absolute -right-24 bottom-10 h-[360px] w-[360px] rounded-full border border-white/15" />
           <div className="pointer-events-none absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10" />
 
-          <header className="flex flex-wrap items-center justify-between gap-4 px-2 pt-2 text-white">
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase font-monoDisplay"
-            >
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-                <Layers size={18} />
-              </span>
-              DashFlow
-            </Link>
-            <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/70 md:flex font-monoDisplay">
-              {isAuthenticated ? (
-                <>
-                  <Link to="/dashboard" className="transition-all hover:text-white">
-                    Dashboard
-                  </Link>
-                  <Link to="/dashboard?view=profile" className="transition-all hover:text-white">
-                    Profile
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={logoutUser}
-                    className="transition-all hover:text-white"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link to="/login" className="transition-all hover:text-white">
-                    Login
-                  </Link>
-                  <Link to="/signup" className="transition-all hover:text-white">
-                    Signup
-                  </Link>
-                </>
-              )}
-            </nav>
-            {isAuthenticated ? (
-              <button
-                type="button"
-                onClick={logoutUser}
-                className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
-              >
-                Logout
-                <MoveUpRight size={14} />
-              </button>
-            ) : (
-              <Link
-                to="/signup"
-                className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
-              >
-                Get started
-                <MoveUpRight size={14} />
-              </Link>
-            )}
-          </header>
+          <LuxuryHeader />
 
           <div className="grid gap-10 px-4 pb-8 pt-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6 text-white">
