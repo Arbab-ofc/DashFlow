@@ -10,15 +10,15 @@ interface TaskCardProps {
 const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
   const statusStyles =
     task.status === "COMPLETED"
-      ? "bg-green-100 text-success"
-      : "bg-amber-100 text-warning";
+      ? "bg-success/20 text-success"
+      : "bg-warning/20 text-warning";
 
   return (
-    <div className="group rounded-xl border border-border bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lift">
+    <div className="group rounded-xl border border-white/10 bg-black/60 p-5 text-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lift">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold text-textPrimary">{task.title}</h3>
-          <p className="mt-2 text-sm text-textSecondary">
+          <h3 className="text-lg font-semibold">{task.title}</h3>
+          <p className="mt-2 text-sm text-white/60">
             {task.description || "No description provided."}
           </p>
         </div>
@@ -26,18 +26,18 @@ const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
           {task.status === "COMPLETED" ? "Completed" : "Pending"}
         </span>
       </div>
-      <div className="mt-4 flex items-center justify-between text-xs text-textSecondary">
+      <div className="mt-4 flex items-center justify-between text-xs text-white/60">
         <span>Created {new Date(task.createdAt).toLocaleDateString()}</span>
         <div className="flex items-center gap-2">
           <button
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-textSecondary transition-all hover:text-primary"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-all hover:text-white"
             onClick={() => onEdit(task)}
             aria-label="Edit task"
           >
             <Pencil size={16} />
           </button>
           <button
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-textSecondary transition-all hover:text-error"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-all hover:text-red-300"
             onClick={() => onDelete(task)}
             aria-label="Delete task"
           >
