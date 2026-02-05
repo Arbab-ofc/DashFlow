@@ -61,21 +61,21 @@ export const useTasks = () => {
     description?: string;
     status?: TaskStatus;
   }) => {
-    const task = await createTask(data);
+    await createTask(data);
     toast.success("Task created");
-    setTasks((prev) => [task, ...prev]);
+    await fetchTasks(filters);
   };
 
   const updateTaskItem = async (id: number, data: Partial<Task>) => {
-    const updated = await updateTask(id, data);
+    await updateTask(id, data);
     toast.success("Task updated");
-    setTasks((prev) => prev.map((task) => (task.id === id ? updated : task)));
+    await fetchTasks(filters);
   };
 
   const deleteTaskItem = async (id: number) => {
     await deleteTask(id);
     toast.success("Task deleted");
-    setTasks((prev) => prev.filter((task) => task.id !== id));
+    await fetchTasks(filters);
   };
 
   const setStatusFilter = (nextStatus?: TaskStatus) => {
