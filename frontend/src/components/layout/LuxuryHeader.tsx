@@ -22,7 +22,7 @@ const LuxuryHeader = () => {
             <Link to="/dashboard" className="transition-all hover:text-white">
               Dashboard
             </Link>
-            <Link to="/dashboard?view=profile" className="transition-all hover:text-white">
+            <Link to="/profile" className="transition-all hover:text-white">
               Profile
             </Link>
             <button type="button" onClick={logoutUser} className="transition-all hover:text-white">
