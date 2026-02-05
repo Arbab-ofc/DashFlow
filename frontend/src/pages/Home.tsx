@@ -40,34 +40,33 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <section className="relative mt-16 rounded-[34px] bg-[#141218] p-10 text-white shadow-[0_40px_100px_rgba(24,16,42,0.45)]">
+            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="space-y-4">
+                <p className="text-xs uppercase tracking-[0.4em] text-white/60">Executive insights</p>
+                <h2 className="text-4xl font-semibold font-monoDisplay">
+                  Orchestrate every task with measured momentum.
+                </h2>
+                <p className="text-sm text-white/60">
+                  DashFlow keeps leadership aligned with live status pulses and high-level execution markers.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  { label: "Portfolio coverage", value: "92%" },
+                  { label: "Active task lanes", value: "18" },
+                  { label: "Executive approvals", value: "41" },
+                  { label: "Velocity score", value: "+18%" }
+                ].map((item) => (
+                  <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-5">
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/50">{item.label}</p>
+                    <p className="mt-4 text-3xl font-semibold font-monoDisplay">{item.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
-
-        <section className="relative mt-16 rounded-[30px] bg-[#141218] p-8 text-white shadow-[0_30px_80px_rgba(24,16,42,0.35)]">
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/60">Executive insights</p>
-              <h2 className="text-3xl font-semibold font-monoDisplay">
-                Orchestrate every task with measured momentum.
-              </h2>
-              <p className="text-sm text-white/60">
-                DashFlow keeps leadership aligned with live status pulses and high-level execution markers.
-              </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {[
-                { label: "Portfolio coverage", value: "92%" },
-                { label: "Active task lanes", value: "18" },
-                { label: "Executive approvals", value: "41" },
-                { label: "Velocity score", value: "+18%" }
-              ].map((item) => (
-                <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/50">{item.label}</p>
-                  <p className="mt-4 text-2xl font-semibold font-monoDisplay">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
       </div>
       <footer className="border-t border-white/30 bg-[#c6b8f0]">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-8 text-sm text-[#221b3b] md:flex-row md:items-center">
