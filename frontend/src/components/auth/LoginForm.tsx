@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { emailPattern } from "../../utils/validation";
 
 interface LoginFormValues {
@@ -14,6 +19,7 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ onSubmit, loading }: LoginFormProps) => {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -36,11 +42,24 @@ const LoginForm = ({ onSubmit, loading }: LoginFormProps) => {
       />
       <TextField
         label="Password"
-        type="password"
+        type={showPassword ? "text" : "password"}
         fullWidth
         {...register("password", { required: "Password is required" })}
         error={Boolean(errors.password)}
         helperText={errors.password?.message}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                onClick={() => setShowPassword((prev) => !prev)}
+                edge="end"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          )
+        }}
       />
       <Button
         type="submit"
