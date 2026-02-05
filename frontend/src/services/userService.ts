@@ -12,7 +12,6 @@ export const updateProfile = async (data: Partial<Pick<User, "name" | "email">>)
 };
 
 export const updatePassword = async (data: {
-  currentPassword: string;
   newPassword: string;
   confirmPassword: string;
 }): Promise<void> => {
