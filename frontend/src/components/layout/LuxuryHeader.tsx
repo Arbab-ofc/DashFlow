@@ -54,7 +54,7 @@ const LuxuryHeader = () => {
         <button
           type="button"
           onClick={logoutUser}
-          className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
+          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white md:flex"
         >
           Logout
           <MoveUpRight size={14} />
@@ -62,50 +62,69 @@ const LuxuryHeader = () => {
       ) : (
         <Link
           to="/signup"
-          className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
+          className="hidden items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white md:flex"
         >
           Signup
           <MoveUpRight size={14} />
         </Link>
       )}
-      {menuOpen && (
-        <div className="mt-4 w-full rounded-2xl border border-white/10 bg-black/40 p-4 text-xs uppercase tracking-[0.2em] text-white/70 md:hidden">
-          <div className="flex flex-col gap-3 font-monoDisplay">
-            <Link to="/" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
-              Home
-            </Link>
-            {isAuthenticated ? (
-              <>
-                <Link to="/dashboard" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
-                  Dashboard
-                </Link>
-                <Link to="/profile" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
-                  Profile
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => {
-                    logoutUser();
-                    setMenuOpen(false);
-                  }}
-                  className="text-left transition-all hover:text-white"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
-                  Login
-                </Link>
-                <Link to="/signup" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
-                  Signup
-                </Link>
-              </>
-            )}
-          </div>
+      <div
+        className={`fixed inset-0 z-30 bg-black/40 transition-opacity md:hidden ${
+          menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setMenuOpen(false)}
+      />
+      <aside
+        className={`fixed right-0 top-0 z-40 h-full w-72 bg-[#141218] p-6 text-white shadow-[0_30px_80px_rgba(0,0,0,0.4)] transition-transform duration-200 md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between">
+          <span className="text-xs uppercase tracking-[0.3em] text-white/60">Menu</span>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white"
+            aria-label="Close menu"
+          >
+            <X size={16} />
+          </button>
         </div>
-      )}
+        <div className="mt-6 flex flex-col gap-4 text-xs uppercase tracking-[0.2em] text-white/70 font-monoDisplay">
+          <Link to="/" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/dashboard" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
+                Dashboard
+              </Link>
+              <Link to="/profile" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
+                Profile
+              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  logoutUser();
+                  setMenuOpen(false);
+                }}
+                className="text-left transition-all hover:text-white"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
+                Login
+              </Link>
+              <Link to="/signup" className="transition-all hover:text-white" onClick={() => setMenuOpen(false)}>
+                Signup
+              </Link>
+            </>
+          )}
+        </div>
+      </aside>
     </header>
   );
 };
