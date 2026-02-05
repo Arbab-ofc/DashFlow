@@ -3,7 +3,7 @@ import { ArrowUpRight, Layers, MoveUpRight } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 
 const Home = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logoutUser } = useAuth();
 
   return (
     <div id="top" className="min-h-screen bg-[#cfc3f4]">
@@ -32,6 +32,13 @@ const Home = () => {
                   <Link to="/dashboard?view=profile" className="transition-all hover:text-white">
                     Profile
                   </Link>
+                  <button
+                    type="button"
+                    onClick={logoutUser}
+                    className="transition-all hover:text-white"
+                  >
+                    Logout
+                  </button>
                 </>
               ) : (
                 <>
@@ -45,13 +52,14 @@ const Home = () => {
               )}
             </nav>
             {isAuthenticated ? (
-              <Link
-                to="/dashboard"
+              <button
+                type="button"
+                onClick={logoutUser}
                 className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
               >
-                Dashboard
+                Logout
                 <MoveUpRight size={14} />
-              </Link>
+              </button>
             ) : (
               <Link
                 to="/signup"
