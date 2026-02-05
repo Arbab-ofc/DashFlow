@@ -38,6 +38,12 @@ const TaskForm = ({ initialValues, onSubmit, loading }: TaskFormProps) => {
         description: initialValues.description ?? "",
         status: initialValues.status
       });
+    } else {
+      reset({
+        title: "",
+        description: "",
+        status: "PENDING"
+      });
     }
   }, [initialValues, reset]);
 
