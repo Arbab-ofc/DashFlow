@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Layout from "../components/layout/Layout";
+import LuxuryHeader from "../components/layout/LuxuryHeader";
 import { useAuth } from "../hooks/useAuth";
 import { updateProfile } from "../services/userService";
 import { toast } from "react-toastify";
@@ -37,7 +38,8 @@ const Profile = () => {
         <div className="pointer-events-none absolute -right-24 bottom-10 h-[360px] w-[360px] rounded-full border border-white/15" />
         <div className="pointer-events-none absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10" />
 
-        <div className="grid gap-6 px-4 pb-8 pt-8">
+        <LuxuryHeader />
+        <div className="grid gap-6 px-4 pb-8 pt-10">
           <section className="rounded-[28px] bg-black/70 px-6 py-8 text-white shadow-[0_30px_80px_rgba(10,8,18,0.45)]">
             <div className="flex flex-col gap-2">
               <p className="text-xs uppercase tracking-[0.3em] text-white/70">Profile</p>
