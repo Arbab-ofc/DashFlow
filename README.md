@@ -62,6 +62,7 @@ flowchart LR
   U[User] --> FE[React + TypeScript Frontend]
   FE -->|Axios + JWT| BE[Express + Prisma API]
   BE --> DB[(PostgreSQL)]
+  FE -->|Profile + Password updates| BE
 ```
 
 ## Authentication Workflow
@@ -77,6 +78,10 @@ sequenceDiagram
   API->>DB: Create user or verify password
   API-->>UI: Return JWT + user profile
   UI->>UI: Store token and redirect to dashboard
+  User->>UI: Update profile or password
+  UI->>API: PUT /api/v1/me or /api/v1/me/password
+  API->>DB: Update user record
+  API-->>UI: Return updated profile or success
 ```
 
 ## Task CRUD Workflow
