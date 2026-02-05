@@ -13,7 +13,7 @@ const Home = () => {
 
           <LuxuryHeader />
 
-          <div className="grid gap-10 px-4 pb-8 pt-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-10 px-4 pb-8 pt-12">
             <div className="space-y-6 text-white">
               <p className="text-xs uppercase tracking-[0.4em] text-white/60">Executive task flow</p>
               <h1 className="text-4xl font-semibold leading-tight md:text-5xl font-monoDisplay">
@@ -37,27 +37,6 @@ const Home = () => {
                 >
                   View dashboard
                 </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-between rounded-[28px] bg-black/70 p-6 text-white shadow-[0_30px_80px_rgba(10,8,18,0.45)]">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/60">
-                <span>Strategic overview</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-[10px]">Live</span>
-              </div>
-              <div className="mt-8 space-y-4">
-                {[
-                  { label: "Active programs", value: "18", note: "In motion" },
-                  { label: "Completed sprint items", value: "124", note: "Last 30 days" }
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3">
-                    <div>
-                      <p className="text-sm font-semibold">{item.value}</p>
-                      <p className="text-xs text-white/60">{item.label}</p>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/50">{item.note}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
