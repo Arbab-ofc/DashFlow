@@ -176,6 +176,12 @@ sequenceDiagram
 
 ## Installation
 
+### Clone the repository
+```bash
+git clone https://github.com/Arbab-ofc/DashFlow.git
+cd DashFlow
+```
+
 ### Backend Setup
 ```bash
 cd backend
@@ -417,5 +423,6 @@ Password: Demo123456
 3. Commit changes with clear messages.
 4. Open a pull request.
 
-## License
-MIT License
+## Contact
+[![GitHub](https://img.shields.io/badge/GitHub-Arbab--ofc-0f172a?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Arbab-ofc)
+[![Website](https://img.shields.io/badge/Website-arbabofc.me-3B82F6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.arbabofc.me)
