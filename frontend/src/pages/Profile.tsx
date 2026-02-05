@@ -16,10 +16,8 @@ const Profile = () => {
   const [name, setName] = useState(user?.name ?? "");
   const [email, setEmail] = useState(user?.email ?? "");
   const [saving, setSaving] = useState(false);
-  const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordSaving, setPasswordSaving] = useState(false);
@@ -43,7 +41,7 @@ const Profile = () => {
   };
 
   const handlePasswordUpdate = async () => {
-    if (!currentPassword || !newPassword || !confirmPassword) {
+    if (!newPassword || !confirmPassword) {
       toast.error("All password fields are required");
       return;
     }
@@ -60,8 +58,7 @@ const Profile = () => {
 
     setPasswordSaving(true);
     try {
-      await updatePassword({ currentPassword, newPassword, confirmPassword });
-      setCurrentPassword("");
+      await updatePassword({ newPassword, confirmPassword });
       setNewPassword("");
       setConfirmPassword("");
       toast.success("Password updated");
@@ -138,30 +135,6 @@ const Profile = () => {
               <p className="text-sm text-white/60">Update your credentials securely.</p>
             </div>
             <div className="grid gap-4">
-              <TextField
-                label="Current password"
-                type={showCurrentPassword ? "text" : "password"}
-                value={currentPassword}
-                onChange={(event) => setCurrentPassword(event.target.value)}
-                fullWidth
-                variant="outlined"
-                InputProps={{
-                  className: "!text-white",
-                  style: { backgroundColor: "rgba(255,255,255,0.05)" },
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={() => setShowCurrentPassword((prev) => !prev)}
-                        edge="end"
-                        aria-label={showCurrentPassword ? "Hide password" : "Show password"}
-                      >
-                        {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  )
-                }}
-                InputLabelProps={{ className: "!text-white/70" }}
-              />
               <TextField
                 label="New password"
                 type={showNewPassword ? "text" : "password"}
