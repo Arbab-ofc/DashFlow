@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Layers, MoveUpRight } from "lucide-react";
+import { useAuth } from "../hooks/useAuth";
 
 const Home = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div id="top" className="min-h-screen bg-[#cfc3f4]">
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-10">
@@ -21,26 +24,43 @@ const Home = () => {
               DashFlow
             </Link>
             <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/70 md:flex font-monoDisplay">
-              <Link to="/login" className="transition-all hover:text-white">
-                Services
-              </Link>
-              <Link to="/signup" className="transition-all hover:text-white">
-                Team
-              </Link>
-              <Link to="/login" className="transition-all hover:text-white">
-                Network
-              </Link>
-              <Link to="/signup" className="transition-all hover:text-white">
-                Support
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link to="/dashboard" className="transition-all hover:text-white">
+                    Dashboard
+                  </Link>
+                  <Link to="/dashboard?view=profile" className="transition-all hover:text-white">
+                    Profile
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="transition-all hover:text-white">
+                    Login
+                  </Link>
+                  <Link to="/signup" className="transition-all hover:text-white">
+                    Signup
+                  </Link>
+                </>
+              )}
             </nav>
-            <Link
-              to="/signup"
-              className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
-            >
-              Get started
-              <MoveUpRight size={14} />
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
+              >
+                Dashboard
+                <MoveUpRight size={14} />
+              </Link>
+            ) : (
+              <Link
+                to="/signup"
+                className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition-all hover:border-white"
+              >
+                Get started
+                <MoveUpRight size={14} />
+              </Link>
+            )}
           </header>
 
           <div className="grid gap-10 px-4 pb-8 pt-12 lg:grid-cols-[1.1fr_0.9fr]">
