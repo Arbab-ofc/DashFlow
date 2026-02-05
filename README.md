@@ -56,6 +56,43 @@
 ## Overview
 DashFlow is a production-grade task management application that provides secure authentication and full task lifecycle management with a modern, responsive interface.
 
+## System Map
+```mermaid
+flowchart LR
+  U[User] --> FE[React + TypeScript Frontend]
+  FE -->|Axios + JWT| BE[Express + Prisma API]
+  BE --> DB[(PostgreSQL)]
+```
+
+## Authentication Workflow
+```mermaid
+sequenceDiagram
+  participant User
+  participant UI as Frontend
+  participant API as Backend API
+  participant DB as PostgreSQL
+
+  User->>UI: Submit signup/login form
+  UI->>API: POST /api/v1/auth/signup or /login
+  API->>DB: Create user or verify password
+  API-->>UI: Return JWT + user profile
+  UI->>UI: Store token and redirect to dashboard
+```
+
+## Task CRUD Workflow
+```mermaid
+flowchart TD
+  A[Dashboard] --> B{Action}
+  B -->|Create| C[POST /api/v1/tasks]
+  B -->|Read| D[GET /api/v1/tasks]
+  B -->|Update| E[PUT /api/v1/tasks/:id]
+  B -->|Delete| F[DELETE /api/v1/tasks/:id]
+  C --> G[Refresh task list]
+  D --> G
+  E --> G
+  F --> G
+```
+
 ## Features
 - User authentication (signup/login)
 - JWT-based authorization
