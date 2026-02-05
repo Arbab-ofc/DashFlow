@@ -11,7 +11,7 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
     { to: "/dashboard", label: "Overview", icon: LayoutDashboard },
     { to: "/dashboard", label: "Tasks", icon: ListTodo },
     { to: "/dashboard", label: "Completed", icon: CheckCircle2 },
-    { to: "/dashboard", label: "Profile", icon: UserCircle }
+    { to: "/profile", label: "Profile", icon: UserCircle }
   ];
 
   return (
