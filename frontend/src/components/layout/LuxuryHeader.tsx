@@ -17,6 +17,9 @@ const LuxuryHeader = () => {
         DashFlow
       </Link>
       <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/70 md:flex font-monoDisplay">
+        <Link to="/" className="transition-all hover:text-white">
+          Home
+        </Link>
         {isAuthenticated ? (
           <>
             <Link to="/dashboard" className="transition-all hover:text-white">
