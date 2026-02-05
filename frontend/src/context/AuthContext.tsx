@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthResponse, User } from "../types";
 import { getProfile } from "../services/userService";
-import { getToken, login, logout, setToken, signup } from "../services/authService";
+import { getToken, login, logout, onLogout, setToken, signup } from "../services/authService";
 import { toast } from "react-toastify";
 
 interface AuthContextValue {
@@ -24,6 +25,7 @@ const handleAuthSuccess = (response: AuthResponse): User => {
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const fetchProfile = useCallback(async () => {
     const token = getToken();
@@ -48,6 +50,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     fetchProfile();
   }, [fetchProfile]);
 
+  useEffect(() => {
+    return onLogout(() => {
+      setUser(null);
+      navigate("/login");
+    });
+  }, [navigate]);
+
   const loginUser = async (email: string, password: string) => {
     const response = await login({ email, password });
     const nextUser = handleAuthSuccess(response);
@@ -65,6 +74,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logoutUser = () => {
     logout();
     setUser(null);
+    navigate("/login");
   };
 
   const value = useMemo(
