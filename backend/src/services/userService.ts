@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { hashPassword, verifyPassword } from "../utils/password";
 
 const prisma = new PrismaClient();
 
@@ -47,4 +48,32 @@ export const updateProfile = async (
   });
 
   return user;
+};
+
+export const updatePassword = async (
+  userId: number,
+  currentPassword: string,
+  newPassword: string
+): Promise<void> => {
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+
+  if (!user) {
+    const error = new Error("User not found");
+    (error as Error & { statusCode?: number }).statusCode = 404;
+    throw error;
+  }
+
+  const isValid = await verifyPassword(user.password, currentPassword);
+
+  if (!isValid) {
+    const error = new Error("Current password is incorrect");
+    (error as Error & { statusCode?: number }).statusCode = 401;
+    throw error;
+  }
+
+  const hashedPassword = await hashPassword(newPassword);
+  await prisma.user.update({
+    where: { id: userId },
+    data: { password: hashedPassword }
+  });
 };
