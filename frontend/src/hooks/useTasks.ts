@@ -61,21 +61,36 @@ export const useTasks = () => {
     description?: string;
     status?: TaskStatus;
   }) => {
-    await createTask(data);
-    toast.success("Task created");
-    await fetchTasks(filters);
+    try {
+      await createTask(data);
+      toast.success("Task created");
+      await fetchTasks(filters);
+    } catch (err) {
+      toast.error("Unable to create task");
+      throw err;
+    }
   };
 
   const updateTaskItem = async (id: number, data: Partial<Task>) => {
-    await updateTask(id, data);
-    toast.success("Task updated");
-    await fetchTasks(filters);
+    try {
+      await updateTask(id, data);
+      toast.success("Task updated");
+      await fetchTasks(filters);
+    } catch (err) {
+      toast.error("Unable to update task");
+      throw err;
+    }
   };
 
   const deleteTaskItem = async (id: number) => {
-    await deleteTask(id);
-    toast.success("Task deleted");
-    await fetchTasks(filters);
+    try {
+      await deleteTask(id);
+      toast.success("Task deleted");
+      await fetchTasks(filters);
+    } catch (err) {
+      toast.error("Unable to delete task");
+      throw err;
+    }
   };
 
   const setStatusFilter = (nextStatus?: TaskStatus) => {
